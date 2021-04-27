@@ -30,13 +30,16 @@ sidebarLayout(
                            choices = unique(tg_tourism$type_en),
                            selected = c("International Traveller Trips", "Same Day Trips"),
                            multiple = T),
-         
+            
+            selectizeInput(inputId = "color", 
+                           label = "Select Type(grouped) of Visits:",
+                           choices = color),
             
             sliderInput(inputId = "year_filter",
                         label = "Filter Year",
                         min = 1995,
                         max = 2020,
-                        value = c(1995, 2019),
+                        value = c(1995, 2017),
                         sep = ""),
             
             
@@ -70,7 +73,7 @@ tg_tourism_filter <- reactive({
 
 output$tourism_ggplot  <- renderPlot({
     
-    ggplot2::ggplot(tg_tourism_filter(), aes_string("year", "visits", group = "type_en", color = "Tourist"))+
+    ggplot2::ggplot(tg_tourism_filter(), aes_string("year", "visits", group = "type_en", color = input$color))+
         geom_line()+
         geom_point()+
         theme_minimal(base_family="Sylfaen")+
@@ -85,7 +88,7 @@ output$tourism_ggplot  <- renderPlot({
 
 output$tourism_plotly  <- renderPlotly({
     
-tourism_digram <- ggplot2::ggplot(tg_tourism_filter(), aes_string("year", "visits", group = "type_en", color = "Tourist"))+
+tourism_digram <- ggplot2::ggplot(tg_tourism_filter(), aes_string("year", "visits", group = "type_en", color = input$color))+
                   geom_line()+
                   geom_point()+
                   theme_minimal(base_family="Sylfaen")+

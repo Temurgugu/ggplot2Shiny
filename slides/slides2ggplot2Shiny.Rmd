@@ -45,6 +45,12 @@ Slide:Ted Laderas [https://bit.ly/bdc_shiny_slides]
 Slide:Ted Laderas [https://bit.ly/bdc_shiny_slides]
 </font>
 
+## Shiny resources {data-background=/Users/macbook/Documents/test/rmarkdown/first_test/Occupation_3.png data-background-size=cover}
+
+- [Shiny course](https://laderast.github.io/gradual_shiny/)
+- [Shiny widgets](https://shiny.rstudio.com/gallery/widget-gallery.html)
+- [Shiny examples](https://shiny.rstudio.com/gallery/)
+
 ## Thank you | Questions? {data-background=/Users/macbook/Documents/test/rmarkdown/first_test/Occupation_3.png data-background-size=cover}
 
 

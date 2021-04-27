@@ -12,7 +12,8 @@ tg_tourism <- readr::read_csv("data/tourism_data.csv")
 
 tg_tourism_filter <- tg_tourism %>%
                      dplyr::filter(type_en == "Same Day Trips"|
-                                   type_en == "International Visitor Trips")
+                                   type_en == "International Visitor Trips"|
+                                   type_en ==  "Tourist (Overnight) Trips")
 
 
 #Build visualization with help of ggplot2 package;
