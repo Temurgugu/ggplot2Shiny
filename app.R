@@ -9,7 +9,7 @@ library(tidyverse)
 
 #import data
 
-tg_tourism <- read.csv("data/tourism_data.csv")
+tg_tourism <- readr::read_csv("data/tourism_data.csv")
 
 #variable
 
@@ -66,6 +66,22 @@ tg_tourism_filter <- reactive({
             dplyr::filter(type_en %in% input$visits_type)
                        })
 
+#ggplot
+
+output$tourism_ggplot  <- renderPlot({
+    
+    ggplot2::ggplot(tg_tourism_filter(), aes_string("year", "visits", group = "type_en", color = "Tourist"))+
+        geom_line()+
+        geom_point()+
+        theme_minimal(base_family="Sylfaen")+
+        scale_x_continuous(breaks=seq(1995, 2020, 1))+
+        scale_y_continuous(breaks=seq(0, 10000000, 1000000), 
+                           labels = scales::comma)
+    
+}) 
+
+
+#plotly 
 
 output$tourism_plotly  <- renderPlotly({
     
@@ -82,17 +98,6 @@ tourism_digram <- ggplot2::ggplot(tg_tourism_filter(), aes_string("year", "visit
 }) 
 
 
-output$tourism_ggplot  <- renderPlot({
-    
-        ggplot2::ggplot(tg_tourism_filter(), aes_string("year", "visits", group = "type_en", color = "Tourist"))+
-        geom_line()+
-        geom_point()+
-        theme_minimal(base_family="Sylfaen")+
-        scale_x_continuous(breaks=seq(1995, 2020, 1))+
-        scale_y_continuous(breaks=seq(0, 10000000, 1000000), 
-                           labels = scales::comma)
-    
-}) 
 
     
 }

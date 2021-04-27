@@ -1,5 +1,5 @@
 ---
-title: "slides2ggplot2Shiny"
+title: "ggplot2Shiny"
 author: "Temur Gugushvili"
 date: "4/19/2021"
 output: ioslides_presentation
@@ -19,7 +19,7 @@ library(flair)
 >- Build visualization with help of ggplot2 package;
 >- Prepare Shiny structure; 
 >- Build interactive visualization in shiny using ggplot2 and plotly;
->- Publish Shiny app using. 
+>- Publish Shiny app using https://www.shinyapps.io/. 
 
 ## Tourism data {data-background=/Users/macbook/Documents/test/rmarkdown/first_test/Occupation_3.png data-background-size=cover }
 
